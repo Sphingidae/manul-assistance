@@ -1,0 +1,15 @@
+(defun equal1 (l1 l2)
+	(if (and (atom (car l1)) (atom (car l2)))
+		(if (and (atom (cdr l1)) (atom (cdr l2)))
+			(and (eql (car l1) (car l2)) (eql (cdr l1) (cdr l2)))
+			(if (or (atom (cdr l1)) (atom (cdr l2)))
+				nil
+				(and (eql (car l1) (car l2)) (equal1 (cdr l1) (cdr l2)))
+			)
+		)
+		(if (or (atom (car l1)) (atom (car l2)))
+			nil
+			(and (equal1 (car l1) (car l2)) (equal1 (cdr l1) (cdr l2)))
+		)
+	)
+)

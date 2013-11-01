@@ -1,0 +1,9 @@
+(defun reverse2 (l1) 
+	(f l1 nil)
+)
+
+(defun f (l1 l2)
+	(if (null l1) l2
+		(f (cdr l1) (cons (car l1) l2))
+	)
+)
